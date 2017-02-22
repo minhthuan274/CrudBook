@@ -1,0 +1,42 @@
+<% if @current_id == @book.user_id %>
+
+<div class="col-sm-6 col-sm-offset-2">
+	<h1>Edit book</h1>
+	<form action="/book/edit/<%= @book.id %>" method="post" accept-charset="utf-8" enctype="multipart/form-data">
+    <input type="hidden" name="_method" value="put">
+		<!-- title -->
+		<div class="form-group">
+    	<label for="title" class="col-sm-2 control-label">Title</label>
+    	<div class="col-sm-10">
+      		<input type="text" class="form-control" placeholder="" name="title" value="<%= @book.title %>">
+    	</div>
+  	</div>
+		
+		<div class="form-group">
+    	<label for="Author" class="col-sm-2 control-label">Author</label>
+    	<div class="col-sm-10">
+      		<input type="text" class="form-control" placeholder="" value="<%=@book.author%>" readonly="true">
+    	</div>
+  	</div>
+
+  	<div class="form-group">
+    	<label for="Publisher" class="col-sm-2 control-label">Publisher</label>
+    	<div class="col-sm-10">
+      		<input type="text" class="form-control" placeholder="" name="publisher" value="<%= @book.publisher %>">
+    	</div>
+  	</div>
+
+  	<div class="form-group">
+    	<label for="year" class="col-sm-2 control-label">Year</label>
+    	<div class="col-sm-10">
+      		<input type="number" class="form-control" placeholder="" name="year" value="<%= @book.year %>">
+    	</div>
+  	</div>
+
+    <input type="submit" name="" value="Update!">
+	</form>
+</div>
+
+<% else %>
+  <h2>you don't have enough permission to edit this book</h2>
+<% end %>

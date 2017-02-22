@@ -1,0 +1,52 @@
+<div class="col-sm-6 col-sm-offset-2">
+	<h1>Info book</h1>
+	<form action="/new_book" method="post" accept-charset="utf-8" enctype="multipart/form-data">
+		<!-- title -->
+		<div class="form-group">
+    	<label for="title" class="col-sm-2 control-label">Title</label>
+    	<div class="col-sm-10">
+      		<input type="text" class="form-control" placeholder="" name="title" value="<%= @book.title %>" readonly="true">
+    	</div>
+  	</div>
+		
+		<div class="form-group">
+    	<label for="Author" class="col-sm-2 control-label">Author</label>
+    	<div class="col-sm-10">
+      		<input type="text" class="form-control" placeholder="" value="<%=@book.author%>" readonly="true">
+    	</div>
+  	</div>
+
+  	<div class="form-group">
+    	<label for="Publisher" class="col-sm-2 control-label">Publisher</label>
+    	<div class="col-sm-10">
+      		<input type="text" class="form-control" placeholder="" name="publisher" value="<%= @book.publisher %>" readonly="true">
+    	</div>
+  	</div>
+
+  	<div class="form-group">
+    	<label for="year" class="col-sm-2 control-label">Year</label>
+    	<div class="col-sm-10">
+      		<input type="number" class="form-control" placeholder="" name="year" value="<%= @book.year %>" readonly="true">
+    	</div>
+  	</div>
+	</form>
+  <br>
+  <h3>Reviews</h3>
+  <a href="/new_review"><button class="btn btn-default">Add review</button></a>
+  <br>
+  <% @reviews.each do |review| %>
+    <li id="review<%= review.id %>">
+      <blockquote>
+        <h3><%= review.subject %></h4>
+        <p><%= review.content %></p>
+        <footer>
+          <%= review.reviewer %> judged <%= review.stars %> star(s)
+        </footer>
+        <a href="/review/edit/<%= review.id %>" >Edit</a>
+        <% if @user.id == review.user_id %>
+            <a onclick="deleteReview(<%=review.id%>)"> Delete</a>
+        <% end %>
+      </blockquote>
+    </li>
+  <% end %>
+</div>

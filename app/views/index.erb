@@ -1,0 +1,32 @@
+<% if @users != nil %>
+<table class="table table-hover">
+	<caption>All of users</caption>
+	<thead>
+		<tr>
+			<th>Avatar</th>
+			<th>First name</th>
+			<th>Last name</th>
+			<th>Email</th>
+			<th></th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @users.each do |user| %>
+		<tr id="item<%= user.id %>">
+			<td> <img src="<%=user.avatar_path%>" alt="" class="img-rounded avatar-table"></td>
+			<td><%=user.first_name %></td>
+			<td><%=user.last_name %></td>
+			<td><%=user.email %></td>
+			<td>
+				<button class="btn btnDelete" onclick="deleteRow(<%= user.id %>)">Delete</button>
+			</td>
+		</tr>
+		<% end %>
+	</tbody>
+</table>
+<% else %>
+
+<h3>No user</h3>
+
+<% end %>

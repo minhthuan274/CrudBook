@@ -1,0 +1,18 @@
+<div class="col-sm-6 col-sm-offset-2"> 
+
+<% if @books == nil %>
+	<h3>No result</h3>
+<% else %>
+	<h3>List books</h3>
+	<ul>
+		<% @books.each do |book| %>
+		<% if book.title == @title_key %>
+			<li class="list-book">
+				<a href="/book/<%= book.id %>" ><%= book.title %></a>
+			</li>
+		<% end %>
+		<% end %>
+	</ul>
+<% end %>
+
+</div>

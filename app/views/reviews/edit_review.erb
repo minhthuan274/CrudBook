@@ -1,0 +1,35 @@
+<div class="col-sm-6 col-sm-offset-2">
+	<h2>Edit review</h2>
+	<form action="/review/edit/<%= @review.id %>" method="post" accept-charset="utf-8" enctype="multipart/form-data">
+		<input type="hidden" name="_method" value="put">
+		<!-- title -->
+		div class="form-group">
+    	<label for="" class="col-sm-2 control-label">Subject</label>
+    	<div class="col-sm-10">
+      		<input type="text" class="form-control" name="subject" value="<%= @review.subject %>">
+    	</div>
+  	</div>
+
+		<div class="form-group">
+    	<label for="" class="col-sm-2 control-label">Reviewer</label>
+    	<div class="col-sm-10">
+      		<input type="text" class="form-control" value="<%= @review.reviewer %>" readonly="true">
+    	</div>
+  	</div>
+
+  	<div class="form-group">
+  		<label for="about_me" class="col-sm-2 control-label">Content</label>
+			<div class="col-sm-10">
+				<textarea name="content" class="form-control" rows="3"><%= @review.content %></textarea>
+			</div>
+  	</div>
+
+  	<div class="form-group">
+    	<label for="" class="col-sm-2 control-label">Star(s)</label>
+    	<div class="col-sm-10">
+      		<input type="stars" class="form-control" min="1" max="5" value="<% @review.stars %>">
+    	</div>
+  	</div>
+  	<input type="submit" name="" value="Update">
+	</form>
+</div>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Crud User</title>
+	<link rel="stylesheet" href="../css/reset.css" />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="../css/main.min.css" />
+</head>
+<body>
+	<nav class="navbar navbar-default">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="/">
+					Crud
+				</a>
+				<form action="/search" method="post" accept-charset="utf-8">
+					<input type="text" name="title" placeholder="Enter book's title">
+					<input type="submit" name="" value="Search">
+				</form>
+			</div>
+			<ul class="nav navbar-nav pull-right">
+					<% if logged_in? %>
+					    <li><a href="/user"><%= current_user.last_name %></a></li>
+					    <li><a href="/logout">Log out</a></li>
+					<% else %>
+					    <li><a href="/login">Log In</a></li>
+  						<li><a href="/signup">Sign Up</a></li>
+					<% end %>
+			</ul>
+		</div>
+	</nav>
+	
+	<div class="container">
+		<%= yield %>
+	</div>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="../js/main.js"></script>
+</body>
+</html>

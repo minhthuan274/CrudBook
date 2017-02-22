@@ -1,0 +1,18 @@
+.navbar.navbar-default {
+	color: black;
+	font-size: 1.3em;
+}
+
+.avatar-info{
+	max-height: 200px;
+	max-width: 200px;
+}
+
+.avatar-table{
+	max-height: 80px;
+	max-width: 80px;
+}
+
+.list-book{
+	font-size: 1.4em;
+}
